@@ -1,0 +1,77 @@
+<div class='container' fxLayout='column' fxLayoutAlign='center' fxLayoutGap='30px'>
+  <mat-card class='sid-nav-container mat-elevation-z2'>
+    <mat-card-header>
+      <mat-card-title>
+        <div>
+          Novo Produto
+        </div>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <div fxLayout='column'>
+      <div fxLayout='row' fxFlex fxLayoutAlign="space-between center" fxLayoutGap='30px'>
+        <mat-form-field fxFlex>
+          <mat-label>Código</mat-label>
+          <input class="form-control" matInput [(ngModel)]="product.code">
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <mat-label>Descrição</mat-label>
+          <input class="form-control" matInput [(ngModel)]="product.description">
+        </mat-form-field>
+
+
+        <div fxFlex>
+          <mat-form-field fxFlex>
+            <mat-label>Preço</mat-label>
+            <input class="form-control" matInput [(ngModel)]="product.price" currencyMask>
+          </mat-form-field>
+        </div>
+
+          <div fxFlex>
+            <mat-form-field fxFlex>
+              <mat-label>Departamento</mat-label>
+              <mat-select [(ngModel)]="product.department">
+                <mat-option *ngFor="let department of departmentList" [value]="department">
+                  {{ department.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+      </div>
+
+      <div fxLayout='row' fxFlex fxLayoutAlign="space-between center" fxLayoutGap='30px'>
+        <div fxLayout='row' fxLayoutAlign="space-between center">
+          <mat-slide-toggle [(ngModel)]="product.enabled">Ativo</mat-slide-toggle>
+      </div>
+      </div>
+    </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <div fxLayout='row' fxLayoutGap='10px' fxLayoutAlign="end end">
+        <button mat-flat-button fxFlex="15" class='sid-nav-container mat-elevation-z2'
+          routerLink="/administrative/products">
+          <div>
+            <span>Voltar</span>
+          </div>
+        </button>
+        <button mat-flat-button fxFlex="15" class='sid-nav-container mat-elevation-z2'
+          routerLink="/administrative/products/new" *ngIf="!isAdding">
+          <div>
+            <span>Novo</span>
+          </div>
+        </button>
+        <button mat-flat-button style="background: red; color: white" fxFlex="15"
+          class='sid-nav-container mat-elevation-z2' (click)="delete()" *ngIf="!isAdding">Excluir
+        </button>
+        <button mat-flat-button color='primary' fxFlex="15" class='sid-nav-container mat-elevation-z2' (click)="save()">
+          <div>
+            <span>Salvar</span>
+          </div>
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

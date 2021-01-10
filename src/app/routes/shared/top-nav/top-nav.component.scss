@@ -1,0 +1,23 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+:host mat-toolbar {
+  background: #fff;
+}
+
+.container-content {
+  padding-top: 50px;
+  padding-right: 50px
+}
+.container-content {
+  padding-top: 50px;
+  padding-right: 50px;
+}
+
+@media screen and (max-width: 1600px) {
+  .container-content {
+    padding-top: 30px;
+    padding-right: 30px;
+  }
+}
