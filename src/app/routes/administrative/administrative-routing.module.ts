@@ -7,7 +7,6 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     canActivate: [AuthGuard],
-    redirectTo: 'products',
   },
   {
     path: 'products',

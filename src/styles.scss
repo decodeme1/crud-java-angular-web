@@ -148,16 +148,16 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  --primary-color: #2fad12;
-  --primary-lighter-color: #c1e6b8;
-  --primary-darker-color: #1d930a;
+  --primary-color: #3C8860;
+  --primary-lighter-color: #3C8860;
+  --primary-darker-color: #3C8860;
   --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
 }
 
 $mat-primary: (
-  main: #2fad12,
+  main: #3C8860,
   lighter: #c1e6b8,
   darker: #1d930a,
   200: #2fad12, // For slide toggle,
@@ -260,6 +260,18 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   color: white;
 }
 .alert.mat-snack-bar-container {
-  background: blue;
+  background: #0000ff;
   color: white;
+}
+
+body {
+  background: #ECECEC;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+mat-button {
+  height: 50px;
 }

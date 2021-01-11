@@ -1,8 +1,9 @@
-const proxy = [
+const PROXY_CONFIG = [
   {
-    context: '/api',
+    context: ['/api'],
+    secure: false,
     target: 'http://localhost:8081',
-    pathRewrite: {'^/api' : ''}
+    logLevel: 'debug',
   }
 ];
-module.exports = proxy;
+module.exports = PROXY_CONFIG;

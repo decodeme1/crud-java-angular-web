@@ -11,7 +11,7 @@ import {catchError} from 'rxjs/operators';
 })
 export class DepartmentService {
 
-  private url = 'http://localhost:8081/api/administrative/department';
+  private url = 'http://localhost:8081/department';
 
   constructor(private httpClient: HttpClient) {
   }

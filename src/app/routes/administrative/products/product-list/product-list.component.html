@@ -72,7 +72,7 @@
 
       <ng-container matColumnDef="Preço">
         <th mat-header-cell *matHeaderCellDef> Preço</th>
-        <td mat-cell *matCellDef="let element" style="width: 8%;"> {{element.price}} </td>
+        <td mat-cell *matCellDef="let element" style="width: 8%;"> {{element.price | currency:'BRL'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Status">
@@ -84,10 +84,10 @@
         <th mat-header-cell *matHeaderCellDef style='padding-left: 20px;'>Ações</th>
         <td mat-cell *matCellDef="let element" style="width: 10%;">
           <div fxLayoutGap='10px; margin-right: 20px'>
-            <button mat-icon-button color='accent'>
+            <button mat-icon-button color='accent' (click)="navigateToEdit(element.id)">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color='warn' (click)="openDialog(element.id)">
+            <button mat-icon-button color='warn' (click)="openDialog(element.id)" routerLink="/administrative/products">
               <mat-icon>delete</mat-icon>
             </button>
           </div>

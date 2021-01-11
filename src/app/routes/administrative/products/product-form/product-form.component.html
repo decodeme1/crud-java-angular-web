@@ -3,7 +3,7 @@
     <mat-card-header>
       <mat-card-title>
         <div>
-          Novo Produto
+          {{ title }}
         </div>
       </mat-card-title>
     </mat-card-header>
@@ -13,27 +13,27 @@
       <div fxLayout='row' fxFlex fxLayoutAlign="space-between center" fxLayoutGap='30px'>
         <mat-form-field fxFlex>
           <mat-label>Código</mat-label>
-          <input class="form-control" matInput [(ngModel)]="product.code">
+          <input class="form-control" matInput [(ngModel)]="product.code" required="true">
         </mat-form-field>
 
         <mat-form-field fxFlex>
           <mat-label>Descrição</mat-label>
-          <input class="form-control" matInput [(ngModel)]="product.description">
+          <input class="form-control" matInput [(ngModel)]="product.description" required="true">
         </mat-form-field>
 
 
         <div fxFlex>
           <mat-form-field fxFlex>
             <mat-label>Preço</mat-label>
-            <input class="form-control" matInput [(ngModel)]="product.price" currencyMask>
+            <input class="form-control" matInput [(ngModel)]="product.price" currencyMask required="true">
           </mat-form-field>
         </div>
 
           <div fxFlex>
             <mat-form-field fxFlex>
-              <mat-label>Departamento</mat-label>
+              <mat-label>{{ product.department ? product.department.name : "Departamento"}}</mat-label>
               <mat-select [(ngModel)]="product.department">
-                <mat-option *ngFor="let department of departmentList" [value]="department">
+                <mat-option *ngFor="let department of departmentList" [value]="department" required="true">
                   {{ department.name }}
                 </mat-option>
               </mat-select>
@@ -49,15 +49,15 @@
       </div>
     </div>
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions style="margin-bottom: 2px">
       <div fxLayout='row' fxLayoutGap='10px' fxLayoutAlign="end end">
-        <button mat-flat-button fxFlex="15" class='sid-nav-container mat-elevation-z2'
+        <button mat-flat-button fxFlex="15" class='sid-nav-container mat-elevation-z4'
           routerLink="/administrative/products">
           <div>
             <span>Voltar</span>
           </div>
         </button>
-        <button mat-flat-button fxFlex="15" class='sid-nav-container mat-elevation-z2'
+        <button mat-flat-button fxFlex="15" class='sid-nav-container mat-elevation-z4'
           routerLink="/administrative/products/new" *ngIf="!isAdding">
           <div>
             <span>Novo</span>
