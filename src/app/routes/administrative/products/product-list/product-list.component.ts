@@ -63,7 +63,7 @@ export class ProductListComponent implements OnInit, AfterViewInit {
                 this.dataSource.data = products;
             });
         }else {
-            this.productService.findByFilter(this.productFilter).subscribe(products => {
+            this.productService.findByFilter(this.getFormattedFilters()).subscribe(products => {
                 this.productList = products;
                 this.dataSource.data = products;
             });
@@ -89,4 +89,13 @@ export class ProductListComponent implements OnInit, AfterViewInit {
         this.router.navigate([`/administrative/products/edit/${id}`]);
     }
 
+    getFormattedFilters(): ProductFilterDTO {
+        if (this.productFilter.description === '') {
+            this.productFilter.description = null;
+        }
+        if (this.productFilter.code === '') {
+            this.productFilter.code = null;
+        }
+        return this.productFilter;
+    }
 }
